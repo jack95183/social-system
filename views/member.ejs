@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員頁面</title>
+</head>
+<body>
+    <h3>歡迎進入會員系統</h3>
+        <div>你好，<%= name %>，在這裡可以留言並觀看其他人的留言喔</div><br/>    
+        <h3>輸入留言</h3>
+    <form action="/add" async method="post">
+        稱呼 <%= name %><br/>
+        留言 <input type="text" name="message" /><br/>
+        <button>送出留言</button>
+    </form>
+    <div>
+        <a href="/signout">登出會員</a>
+    </div>  
+    <h3>留言列表</h3><br/>
+    <% for(let i=0;i<data.length;i++){ %>
+        <div>稱呼：<%= data[i].name %></div>
+        <div>留言：<%= data[i].message %></div> <br/>
+        <hr/>
+    <% } %>
+    </div>  
+</body>
+</html>
